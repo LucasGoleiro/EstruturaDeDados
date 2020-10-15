@@ -1,4 +1,4 @@
-package ed_lista_6;
+package ed_listas_6;
 
 import java.util.Random;
 import java.util.UUID;

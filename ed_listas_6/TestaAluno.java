@@ -1,4 +1,4 @@
-package ed_lista_6;
+package ed_listas_6;
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +12,7 @@ public class TestaAluno {
 		String resultadoListar = "";
 		
 		while(opc != 99) {
-			opc = Integer.parseInt(JOptionPane.showInputDialog("1 - Esta vazia ? \n2 - Adiciona Inicio \n3 - Adiciona Final \n7 - Mostrar \n99 - Sair"));
+			opc = Integer.parseInt(JOptionPane.showInputDialog("1 - Esta vazia ? \n2 - Adiciona Inicio \n3 - Adiciona Final \n4 - Remove Inicio \n5 - Remove Final \n7 - Mostrar \n99 - Sair"));
 			switch(opc){
 			case 1: boolean vazia = lista.estaVazia();
 					if (vazia) {
@@ -30,7 +30,11 @@ public class TestaAluno {
 					curso = JOptionPane.showInputDialog("Digite o curso do Aluno");
 					Aluno alunoFinal = new Aluno(nome, curso);
 					lista.adicionaFinal(alunoFinal);
-	break;
+		    break;
+			case 4: lista.removeInicio();
+			break;
+			case 5: lista.removeFinal();
+			break;
 			case 7: resultadoListar = lista.mostraLista(null, "", true);
 					System.out.println(resultadoListar);
 					resultadoListar = "";

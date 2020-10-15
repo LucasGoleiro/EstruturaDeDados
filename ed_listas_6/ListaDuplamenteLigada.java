@@ -1,4 +1,6 @@
-package ed_lista_6;
+package ed_listas_6;
+
+import javax.swing.JOptionPane;
 
 public class ListaDuplamenteLigada {
 	private No inicio;
@@ -35,16 +37,39 @@ public class ListaDuplamenteLigada {
 		if (inicio == null) {
 			this.inicio = novoAluno;
 		} else {
-			No aux = BuscaUltimo(inicio);		
+			No aux = BuscaUltimo(inicio);	
+			novoAluno.anterior = aux;
 			aux.proximo = novoAluno;
 		}
 	}
 	
-	public No BuscaUltimo(No aux){
-		if(aux.proximo!=null){
+	public No BuscaUltimo(No aux) {
+		if(aux.proximo!=null) {
 			return BuscaUltimo(aux.proximo);
 		}
 		return aux;
+	}
+	
+	public void removeInicio() {
+		if (this.estaVazia()) {
+			System.out.println("Lista vazia, portanto nao pode ser removido");
+		} else {
+			JOptionPane.showMessageDialog(null, "Aluno: " + inicio.aluno.getNome() + " removido");
+			inicio = inicio.proximo;
+			inicio.anterior = null;
+		}
+	}
+	
+	public void removeFinal() {
+		if (this.estaVazia()) {
+			System.out.println("Lista vazia, portanto nao pode ser removido");
+		} else {
+			No aux = BuscaUltimo(inicio);
+			JOptionPane.showMessageDialog(null, "Aluno: " + aux.aluno.getNome() + " removido");
+			No aux2 = aux.anterior;
+			aux2.proximo = null;
+			aux = null;
+		}
 	}
 	
 	public String mostraLista(No aux, String resultadoPesquisa, boolean primeiraExecucao) {

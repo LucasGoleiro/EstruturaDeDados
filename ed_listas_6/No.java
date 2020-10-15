@@ -1,4 +1,4 @@
-package ed_lista_6;
+package ed_listas_6;
 
 public class No {
 	public Aluno aluno;
