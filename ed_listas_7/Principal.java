@@ -8,6 +8,7 @@ public class Principal {
 		int opc = 0;
 		int sistema;
 		MetodosAluno listaAluno = new MetodosAluno();
+		MetodosDisciplina listaDisciplina = new MetodosDisciplina();
 		
 		sistema = Integer.parseInt(JOptionPane.showInputDialog("1 - Cadastro de Aluno \n2 - Cadastro de Disciplina \n3 - Cadastro de Media"));
 		
@@ -44,6 +45,32 @@ public class Principal {
 				case 99: System.exit(0);
 				break;
 				}
+			}
+		} else if(sistema == 2) {
+			String nome;
+			Disciplina disciplina;
+			
+			opc = Integer.parseInt(JOptionPane.showInputDialog("1 - Adiciona inicio \n2 - Adiciona final \n3 - Remove inicio \n4 - Remove final \n99 - Sair"));
+			
+			switch(opc) {
+			case 1: nome = JOptionPane.showInputDialog("Nome da disciplina:");
+			disciplina = new Disciplina(nome);
+			listaDisciplina.adicionaInicio(disciplina);
+			break;
+	
+			case 2: nome = JOptionPane.showInputDialog("Nome da disciplina:");
+			disciplina = new Disciplina(nome);
+			listaDisciplina.adicionaFinal(disciplina);
+			break;
+			
+			case 3: listaDisciplina.removeInicio();
+			break;
+			
+			case 4: listaDisciplina.removeFinal();
+			break;
+			
+			case 99: System.exit(0);
+			break;
 			}
 		}
 		
